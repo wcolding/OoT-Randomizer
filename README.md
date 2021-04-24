@@ -1,3 +1,8 @@
+This is a fork of OoTRandomizer with some small quality of life changes for multiworld. Getting items from another player will no longer interrupt Link carrying items over his head (bombs, cuccos, Ruto) nor when Link is holding a deku stick (to protect torch lighting and broken deku stick).
+
+Special thanks to denoflions for the deku stick help!
+
+
 # OoTRandomizer
 
 This is a randomizer for _The Legend of Zelda: Ocarina of Time_ for the Nintendo 64.
