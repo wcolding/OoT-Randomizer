@@ -244,7 +244,7 @@ void after_item_received() {
 }
 
 inline uint32_t link_is_ready() {
-    if ((z64_link.state_flags_1 & 0xFCAC2485) == 0 &&
+    if ((z64_link.state_flags_1 & 0xFCAC2C85) == 0 &&
         (z64_link.common.unk_flags_00 & 0x0001) &&
         (z64_link.state_flags_2 & 0x000C0000) == 0 &&
         (z64_event_state_1 & 0x20) == 0 &&
