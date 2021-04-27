@@ -1,5 +1,7 @@
 This is a fork of OoTRandomizer with some small quality of life changes for multiworld. Getting items from another player will no longer interrupt Link carrying items over his head (bombs, cuccos, Ruto) nor when Link is holding a deku stick (to protect torch lighting and broken deku stick).
 
+Additionally, players can press dpad up to toggle item freeze. Enabling item freeze will force items to wait for you until you disable it. This will help players do tricks like B1 skip without an incoming item ruining their lineup.
+
 Special thanks to denoflions for the deku stick help!
 
 
