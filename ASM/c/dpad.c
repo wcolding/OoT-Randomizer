@@ -1,4 +1,5 @@
 #include "gfx.h"
+#include "text.h"
 #include "dpad.h"
 
 extern uint8_t CFG_DISPLAY_DPAD;
@@ -13,9 +14,9 @@ typedef void(*usebutton_t)(z64_game_t *game, z64_link_t *link, uint8_t item, uin
 
 #define z64_playsfx   ((playsfx_t)      0x800C806C)
 #define z64_usebutton ((usebutton_t)    0x8038C9A0)
+#define NO_SYNC_FLAG  z64_file.scene_flags[68].unk_00_    // chamber of the sages unused flag 0x11AE24
 
 void handle_dpad() {
-
     pad_t pad_pressed = z64_game.common.input[0].pad_pressed;
 
     if (CAN_USE_DPAD && DISPLAY_DPAD){
@@ -38,9 +39,14 @@ void handle_dpad() {
             z64_usebutton(&z64_game,&z64_link,z64_file.items[0x07], 2);
         }
     }
+
+    if (pad_pressed.du){
+        NO_SYNC_FLAG ^= 1; 
+    }
 }
 void draw_dpad() {
     z64_disp_buf_t *db = &(z64_ctxt.gfx->overlay);
+    
     if (DISPLAY_DPAD && CFG_DISPLAY_DPAD) {
         gSPDisplayList(db->p++, &setup_db);
         gDPPipeSync(db->p++);
@@ -82,5 +88,12 @@ void draw_dpad() {
 
         gDPPipeSync(db->p++);
     }
+
+    if (NO_SYNC_FLAG == 1) {
+        gDPSetPrimColor(db->p++, 0, 0, 0xFF, 0x00, 0x00, 0xFF);
+        text_print("ITEM FREEZE ENABLED", 30, Z64_SCREEN_HEIGHT - 50);
+    }
+
+    text_flush(db);
 }
 

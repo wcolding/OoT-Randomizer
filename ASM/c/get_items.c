@@ -244,8 +244,9 @@ void after_item_received() {
 }
 
 inline uint32_t link_is_ready() {
-    if ((z64_link.state_flags_1 & 0xFCAC2C85) == 0 &&
-        (z64_link.unk_00_[5] != 6) &&
+    if ((z64_link.state_flags_1 & 0xFCAC2C85) == 0 &&  // holding item above head
+        (z64_link.unk_00_[5] != 6) &&                  // holding deku stick
+        (z64_file.scene_flags[68].unk_00_ != 1) &&     // manual no sync with dpad up
         (z64_link.common.unk_flags_00 & 0x0001) &&
         (z64_link.state_flags_2 & 0x000C0000) == 0 &&
         (z64_event_state_1 & 0x20) == 0 &&

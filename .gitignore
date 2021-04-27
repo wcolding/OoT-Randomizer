@@ -19,6 +19,7 @@ ARCHIVE.bin
 *.sav
 *.spec
 .*.sw*
+*.ps1
 
 tests/Output
 !tests/*.sav
