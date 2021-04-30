@@ -14,7 +14,7 @@ typedef void(*usebutton_t)(z64_game_t *game, z64_link_t *link, uint8_t item, uin
 
 #define z64_playsfx   ((playsfx_t)      0x800C806C)
 #define z64_usebutton ((usebutton_t)    0x8038C9A0)
-#define NO_SYNC_FLAG  z64_file.scene_flags[68].unk_00_    // chamber of the sages unused flag 0x11AE24
+#define NO_SYNC_FLAG  z64_file.scene_flags[0x4D].unk_00_    // Guard house unused flag
 
 void handle_dpad() {
     pad_t pad_pressed = z64_game.common.input[0].pad_pressed;
